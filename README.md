@@ -1,6 +1,11 @@
 # serverless-url-shortener-api
 
-This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
+A fully Serverless URL shortener app (aws).<br>
+There are two API endpoints.<br>
+1. Adding a new URL to shortener and save it to dynamodb.<br>
+2. Get from the shortened URL (query dynamodb) the original one.<br>
+
+![image](https://user-images.githubusercontent.com/61663422/224678039-2a0f5542-2d4d-4672-8374-0a0c25f5a673.png)
 
 - hello_world - Code for the application's Lambda function.
 - events - Invocation events that you can use to invoke the function.
