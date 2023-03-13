@@ -9,3 +9,7 @@ aws dynamodb create-table --cli-input-json file://dynamo-db-configuration/create
 echo "Put dummy value at the db"
 
 aws dynamodb put-item --table-name url-table --item '{"shortened_url": {"S": "abc123"}, "url": {"S": "https://example.com"}}' --endpoint-url http://localhost:8000
+
+echo "Get the dummy value from the db"
+
+aws dynamodb get-item --table-name shortened-urls --key '{"shortened_url": {"S": "abc123"}}' --endpoint-url http://localhost:8000
