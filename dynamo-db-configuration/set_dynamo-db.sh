@@ -12,4 +12,7 @@ aws dynamodb put-item --table-name url-table --item '{"shortened_url": {"S": "ab
 
 echo "Get the dummy value from the db"
 
-aws dynamodb get-item --table-name shortened-urls --key '{"shortened_url": {"S": "abc123"}}' --endpoint-url http://localhost:8000
+aws dynamodb get-item --table-name url-table --key '{"shortened_url": {"S": "abc123"}}' --endpoint-url http://localhost:8000
+
+# set sam to the same network as an API
+# sam local start-api -t template.yaml --docker-network abp-sam-backend
