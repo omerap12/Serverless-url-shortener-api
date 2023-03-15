@@ -1,11 +1,9 @@
 import json
 import boto3
 
+dynamodb_client = boto3.client('dynamodb', endpoint_url='http://abp-sam-nestjs-dynamodb:8000') # connect to dynamo db
 
 def lambda_handler(event, context):
-    dynamodb_client = boto3.client('dynamodb', endpoint_url='http://abp-sam-nestjs-dynamodb:8000') # connect to dynamo db
-    if dynamodb_client:
-        print("Dynamo-connected.")
     parameters_sent = json.loads(event['body'])
     url_requested = parameters_sent['shortened_url']
 
