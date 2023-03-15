@@ -23,3 +23,26 @@ Resources:
           Properties:
             Path: /get_full_url
             Method: get
+  PostShortURLFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: post_short_url/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        PostShortURL:
+          Type: Api
+          Properties:
+            Path: /post_short_url
+            Method: post
+    Policies:
+        # Give Create/Read/Update/Delete Permissions to the SampleTable
+        - DynamoDBCrudPolicy:
+            TableName: url-table
+# need to adjust this properties
+Properties:
+     Environment:
+       Variables:
+         DB_HOST: http://localhost:8000
