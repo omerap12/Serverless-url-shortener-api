@@ -5,8 +5,17 @@ import os
 dynamodb_client = boto3.client('dynamodb', endpoint_url=os.environ['ENDPOINT_URL']) # connect to dynamo db
 
 def lambda_handler(event, context):
-    parameters_sent = json.loads(event['body'])
-    url_requested = parameters_sent['shortened_url']
+    try:
+        parameters_sent = json.loads(event['body'])
+        url_requested = parameters_sent['shortened_url']
+    except Exception as e:
+        print(e)
+        return {
+                "statusCode": 502,
+                "body": json.dumps({
+                    "message" : "Error"
+                }),
+            }
 
     # getting the item from the database
     response = dynamodb_client.get_item(
