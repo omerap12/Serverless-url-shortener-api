@@ -26,9 +26,18 @@ To build and start the local api , run:
 sam build
 sam local start-api -t template.yaml --docker-network abp-sam-backend
 ```
-
-
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
+
+## Usage Examples:
+Using curl you can do the following:<br>
+Query:
+```bash
+curl -v -X GET http://127.0.0.1:3000/get_full_url -H 'Content-Type: application/json' -d '{"shortened_url":"abc123"}'
+```
+Insert:
+```bash
+curl -v -X POST http://127.0.0.1:3000/post_short_url -H 'Content-Type: application/json' -d '{"short_url":"omer","full_url":"https://omer.com"}'
+```
 
 ## Deploy the sample application
 
