@@ -1,7 +1,8 @@
 import json
 import boto3
+import os
 
-dynamodb_client = boto3.client('dynamodb', endpoint_url='http://abp-sam-nestjs-dynamodb:8000') # connect to dynamo db
+dynamodb_client = boto3.client('dynamodb', endpoint_url=os.environ['ENDPOINT_URL']) # connect to dynamo db
 
 def lambda_handler(event, context):
     parameters_sent = json.loads(event['body'])

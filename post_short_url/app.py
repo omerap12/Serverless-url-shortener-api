@@ -1,15 +1,14 @@
 import json
 import boto3
+import os
 
-dynamodb_client = boto3.client('dynamodb', endpoint_url='http://abp-sam-nestjs-dynamodb:8000') # connect to dynamo db
+dynamodb_client = boto3.client('dynamodb', endpoint_url=os.environ['ENDPOINT_URL']) # connect to dynamo db
 
 def lambda_handler(event, context):
     try:
         request_body = json.loads(event['body'])
         short_url = request_body['short_url']
-        print(short_url)
         full_url = request_body['full_url']
-        print(full_url)
     except Exception as e:
         print(e)
         return {
