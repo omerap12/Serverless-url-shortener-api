@@ -1,6 +1,15 @@
 #!/bin/bash
 
+function usage {
+    echo "USAGE: $0 PORT_NUMBER"
+    echo "Create and run the local dynamodb at port number."
+}
+
 PORT=$1
+if [ -z $PORT ]; then 
+    usage
+    exit
+fi
 echo "Create dynamodb docker on port $PORT"
 docker-compose -f docker-compose.yml up &
 
