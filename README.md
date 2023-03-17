@@ -20,6 +20,8 @@ Prerequisite:
 - aws-cli (with aws configure)
 - docker
 - docker-compose
+- python3.9
+- pip for python3.9
 
 To set up the environment, run the following script:<br>
 ```bash
