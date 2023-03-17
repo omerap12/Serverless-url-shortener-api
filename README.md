@@ -13,14 +13,19 @@ There are two API endpoints.<br>
 - tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
-Run locally:<br>
+## Run locally:
 The serverless api can run locally on your computer, including the dynamodb database.<br>
 Dynamodb container runs on port 8000 (make sure the port is avilaible)<br>
+Prerequisite:
+- aws-cli (with aws configure)
+- docker
+- docker-compose
+
 To set up the environment, run the following script:<br>
 ```bash
 ./create_dynamodb.sh
 ```
-(Maybe in the future I will adjust the script to support PORT number input)<br>
+(Maybe in the future I will adjust the script to support PORT number as an input)<br>
 To build and start the local api , run:
 ```bash
 sam build
