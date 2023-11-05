@@ -14,7 +14,7 @@ variable "write_lambda_function_description" {
 variable "read_lambda_function_name" {
     type = string
     description = "Name of reading function from dynamodb table"
-    default = "url_reader_function"
+    default = "url_read_function"
 }
 
 variable "read_lambda_function_description" {
