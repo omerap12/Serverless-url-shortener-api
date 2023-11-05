@@ -13,7 +13,7 @@ def lambda_handler(event, context):
         logger.info(f"Short url: {short_url}")
         
         if not short_url:
-            raise ValueError("Short URL and Full URL are required.")
+            raise ValueError("short_url is required.")
                 
     except ValueError as e:
         logger.error(f"Invalid input: {e}")

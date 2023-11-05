@@ -22,21 +22,21 @@ resource "aws_iam_policy" "read_lambda_policy" {
   name        = var.read_lambda_function_name
   description = "Policy that allows lambda writing access to dynamodb"
   policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DynamoDBTableAccess",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:DescribeTable",
-                "dynamodb:GetItem",
-                "dynamodb:Scan",
-                "dynamodb:Query"
-            ],
-            "Resource": module.dynamodb_table.dynamodb_table_arn
-        },
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "DynamoDBTableAccess",
+        "Effect" : "Allow",
+        "Action" : [
+          "dynamodb:DescribeTable",
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query"
+        ],
+        "Resource" : module.dynamodb_table.dynamodb_table_arn
+      },
     ]
-})
+  })
   depends_on = [module.dynamodb_table]
 
 }
