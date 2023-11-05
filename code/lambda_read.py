@@ -9,8 +9,11 @@ logger.setLevel(logging.INFO)
 
 def lambda_handler(event, context):
     try:
-        short_url = event.get('short_url')
-        logger.info(f"Short url: {short_url}")
+        body = event['body']
+        logger.info(body)
+        body = json.loads(body)
+
+        short_url = body.get('short_url')
         
         if not short_url:
             raise ValueError("short_url is required.")
