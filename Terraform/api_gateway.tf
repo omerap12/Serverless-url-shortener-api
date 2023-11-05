@@ -47,11 +47,3 @@ resource "aws_lambda_permission" "api_gateway_write_invoke" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${module.api_gateway.apigatewayv2_api_execution_arn}/*/*/write"
 }
-
-
-output "api-url-read" {
-    value = "${module.api_gateway.apigatewayv2_api_api_endpoint}/read"
-}
-output "api-url-write" {
-    value = "${module.api_gateway.apigatewayv2_api_api_endpoint}/write"
-}
