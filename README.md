@@ -2,8 +2,11 @@
 # Serverless URL Shortener API
 
 This repository contains Terraform configurations and AWS Lambda functions to create a simple URL shortener API using AWS API Gateway, AWS Lambda, and DynamoDB. The API allows users to create short URLs and retrieve the original full URLs associated with the short URLs.
+![READ](https://github.com/omerap12/Serverless-url-shortener-api/assets/61663422/22ae2c2f-b262-4f5e-b64d-c08eb26bf463)
 
 ## Terraform Configurations
+
+
 
 The Terraform configurations in this repository create the following AWS resources:
 
