@@ -42,6 +42,19 @@ terraform init
 terraform apply
 ```
 3. After applying the Terraform configurations, the API Gateway endpoint URLs for read and write operations will be provided as outputs. You can find them in the Terraform output variables.
+
+## Usage Examples
+### Add Short URL
+To add a short URL, use the following `curl` command:
+```bash
+curl -X POST -d '{"full_url":"test.com","short_url":"test"}' -H "Content-Type: application/json" -i $api_url_write
+```
+### Get Full URL
+To get a Full URL from a short URL, use the following `curl` command:
+```bash
+curl -X GET -d '{"short_url":"test"}' -H "Content-Type: application/json" -i $api_url_read
+```
+
 ## Lambda Functions
 
 ### `read_lambda` Function
